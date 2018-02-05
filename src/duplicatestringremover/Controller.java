@@ -13,14 +13,17 @@ public class Controller {
 		FileReader fileReader = new FileReader("bin/TestFile.txt");
 
 		BufferedReader bufferedReader = new BufferedReader(fileReader);
-		ArrayList<String> lines = new ArrayList<String>();
+		ArrayList<String> words = new ArrayList<String>();
 		String line = null;
 
 		while ((line = bufferedReader.readLine()) != null) {
-			lines.add(line);
+			if(line.contains(" ")) {
+				System.out.println("Test");
+			};
 		}
 
 		bufferedReader.close();
+		System.out.println();
 	}
 
 	public static void main(String[] args) {
