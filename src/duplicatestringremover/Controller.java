@@ -33,7 +33,11 @@ public class Controller {
 				}
 				// Iterates through each character in the current word, except for the last one
 				for (int i = 0; i < currentWord.length() - 1; i++) {
-					System.out.println(currentWord.charAt(i));
+					char currentChar = Character.toLowerCase(currentWord.charAt(i));
+					String temp = currentWord.substring(i+1).toLowerCase();
+					if(temp.indexOf(currentChar) >= 0) {
+						System.out.println(temp);
+					}
 				}
 				System.out.println(currentWord);
 			}
