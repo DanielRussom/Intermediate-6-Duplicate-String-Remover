@@ -31,17 +31,32 @@ public class Controller {
 				if (currentWord.length() < 3) {
 					continue;
 				}
-				// Iterates through each character in the current word, except for the last one
-				for (int i = 0; i < currentWord.length() - 1; i++) {
-					char currentChar = Character.toLowerCase(currentWord.charAt(i));
-					String temp = currentWord.substring(i+1).toLowerCase();
-					if(temp.indexOf(currentChar) >= 0) {
-						System.out.println(temp);
-					}
-				}
+				// Calls a function to remove duplicate characters
+				removeDuplicateChars(currentWord);
+
 				System.out.println(currentWord);
 			}
 		}
+	}
+
+	/**
+	 * Removes duplicate characters from the passed in string
+	 * 
+	 * @param word
+	 *            - Original word to be edited
+	 * @return - passed in string with duplicate characters removed
+	 */
+	public String removeDuplicateChars(String word) {
+		String newWord = null;
+		// Iterates through each character in the current word, except for the last one
+		for (int i = 0; i < word.length() - 1; i++) {
+			char currentChar = Character.toLowerCase(word.charAt(i));
+			String temp = word.substring(i + 1).toLowerCase();
+			if (temp.indexOf(currentChar) >= 0) {
+				System.out.println(temp);
+			}
+		}
+		return newWord;
 	}
 
 	public static void main(String[] args) {
