@@ -13,17 +13,23 @@ public class Controller {
 		FileReader fileReader = new FileReader("bin/TestFile.txt");
 
 		BufferedReader bufferedReader = new BufferedReader(fileReader);
-		ArrayList<String> words = new ArrayList<String>();
+		ArrayList<String> lines = new ArrayList<String>();
 		String line = null;
 
 		while ((line = bufferedReader.readLine()) != null) {
-			if(line.contains(" ")) {
-				System.out.println("Test");
-			};
+			lines.add(line);
 		}
 
 		bufferedReader.close();
-		System.out.println();
+		// Iterates through each string in lines
+		for(String current : lines) {
+			// Splits each word up
+			String[] words = current.split("\\s+");
+			// Iterates through each word in the current line
+			for(String currentWord : words) {
+				System.out.println(currentWord);
+			}
+		}
 	}
 
 	public static void main(String[] args) {
