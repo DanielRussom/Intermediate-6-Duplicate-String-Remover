@@ -22,11 +22,19 @@ public class Controller {
 
 		bufferedReader.close();
 		// Iterates through each string in lines
-		for(String current : lines) {
+		for (String current : lines) {
 			// Splits each word up
 			String[] words = current.split("\\s+");
 			// Iterates through each word in the current line
-			for(String currentWord : words) {
+			for (String currentWord : words) {
+				// Skips words with less than 3 characters
+				if (currentWord.length() < 3) {
+					continue;
+				}
+				// Iterates through each character in the current word, except for the last one
+				for (int i = 0; i < currentWord.length() - 1; i++) {
+					System.out.println(currentWord.charAt(i));
+				}
 				System.out.println(currentWord);
 			}
 		}
