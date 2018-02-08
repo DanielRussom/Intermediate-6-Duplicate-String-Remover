@@ -32,7 +32,7 @@ public class Controller {
 					continue;
 				}
 				// Calls a function to remove duplicate characters
-				removeDuplicateChars(currentWord);
+				currentWord = removeDuplicateChars(currentWord);
 
 				System.out.println(currentWord);
 			}
@@ -52,11 +52,18 @@ public class Controller {
 		for (int i = 0; i < word.length() - 1; i++) {
 			char currentChar = Character.toLowerCase(word.charAt(i));
 			String temp = word.substring(i + 1).toLowerCase();
-			if (temp.indexOf(currentChar) >= 0) {
-				System.out.println(temp);
+			int location = temp.indexOf(currentChar);
+			while (location >= 0) {
+
+			//System.out.println(word.substring(0, location+i + 1) + " " + word.substring(location + i + 2));
+				word = word.substring(0, location+i + 1) + word.substring(location + i + 2);
+				//System.out.println(word);
+
+				temp = word.substring(i + 1).toLowerCase();
+				location = temp.indexOf(currentChar);
 			}
 		}
-		return newWord;
+		return word;
 	}
 
 	public static void main(String[] args) {
